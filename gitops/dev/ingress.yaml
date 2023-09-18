@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example
+spec:
+  tls:  
+    - hosts:      
+      - example.apps.test.c0dd8641-2f17-4fc8-9247-aac5290b949b.intilitycloud.com
+  rules:
+  - host: example.apps.test.c0dd8641-2f17-4fc8-9247-aac5290b949b.intilitycloud.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: example
+            port:
+              number: 4000
+        path: /
+        pathType: ImplementationSpecific
